@@ -11,9 +11,9 @@ class SessionsController < ApplicationController
       flash[:infor] = "Login sucess!"
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
+      redirect_back_or user
     else
-      flash[:danger] = "Email or password is not valid"
+      flash.now[:danger] = "Email or password is not valid"
       render 'new'
     end
   end
