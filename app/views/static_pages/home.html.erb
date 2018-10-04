@@ -1,3 +1,8 @@
-<h1>Welcome to fake twiter</h1>
-    <%= link_to "Sign up", new_user_path%>
-<p></p>
+<% if logged_in? %>  
+  <%= render 'shared/user_info' %>
+  <%= render 'shared/micropost_form'%>
+  <%= render 'shared/feed' %>
+<% else %>
+ <h1>Welcome to sample app</h1>
+   <%= link_to "Sign up", new_user_path%>
+<% end %>
